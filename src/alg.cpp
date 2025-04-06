@@ -3,7 +3,7 @@ int countPairs1(int *arr, int len, int value) {
   int count = 0;
   for (int i = 0; i < len; i++) {
     for (int j = i + 1; j < len; j++) {
-      if (arr[i]+arr[j] == value) count++;
+      if (arr[i] + arr[j] == value) count++;
     }
   }
     return count;
@@ -14,17 +14,16 @@ int countPairs2(int *arr, int len, int value) {
   while (high > 0) {
       if (arr[high] + arr[0] > value) {
           high--;
-      }
-      else break;
+      } else break;
   }
   for (int i = 0; i < len; i++) {
       for (int j = high; j > i; j--) {
-          if (arr[i]+arr[j] == value) count++;
+          if (arr[i] + arr[j] == value) count++;
       }
   }
   return count;
 }
-int binSearch(int *arr,int left, int right, int value) {
+int binSearch(int *arr,int left, int right, int value, bool firstOne) {
   int pos = -1;
   while (left <= right) {
     int mid = left + (right - left) / 2;
